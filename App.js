@@ -17,19 +17,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Onboarding from "./src/screens/Onboarding";
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 400 }}>Home Screen</Text>
-    </View>
-  );
-}
-
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="#ed1d24" barStyle = "light-content" />
       <Stack.Navigator initialRouteName="Home" screenOptions={{
         headerShown: false
       }}>
