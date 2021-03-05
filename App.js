@@ -5,7 +5,8 @@
  * @format
  * @flow strict-local
  */
-jest.useFakeTimers()
+
+
 import React from 'react';
 import {
   StatusBar,

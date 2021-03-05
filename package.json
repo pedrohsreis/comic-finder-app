@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "initial-setup-android": "npm install && react-native run-android",
+    "initial-setup-ios": "npm install && cd ios && pod install && cd .. && react-native run-ios"
   },
   "dependencies": {
     "@react-native-community/viewpager": "^5.0.11",
@@ -39,19 +41,20 @@
   },
   "jest": {
     "preset": "react-native",
-    "collectCoverageFrom": [ "src/**/*.{js,jsx}" ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
     "setupFiles": [
       "./jest-setup.js"
     ],
     "moduleNameMapper": {
-       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/fileTransformer.js", 
-       "\\.(css|less)$": "<rootDir>/tests/fileTransformer.js" 
-      }
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/fileTransformer.js",
+      "\\.(css|less)$": "<rootDir>/tests/fileTransformer.js"
+    }
   },
   "rnpm": {
     "assets": [
       "./src/assets/fonts/"
     ]
   }
-  
 }
