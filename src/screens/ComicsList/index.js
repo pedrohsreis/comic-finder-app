@@ -36,16 +36,16 @@ const ComicsList = ({ route, navigation }) => {
             }
         })
             .then((res) => {
-                console.log(res);
+                
                 setLoading(false);
                 setComics(res.data.data.results);
                 if (res.data.data.results.length === 0)
                     alert("We did not find any results for your search, please try again.")
             })
             .catch((err) => {
-                console.log({ err });
+                
                 setLoading(false);
-                alert("We are unable to reach our servers right now, try again later.")
+                alert("We are unable to reach our servers right now, try again later.");
             });
     }, [heroId]);
 
@@ -57,16 +57,17 @@ const ComicsList = ({ route, navigation }) => {
             }
         })
             .then((res) => {
-                console.log(res);
                 setModalLoading(false);
                 setCharacters(res.data.data.results);
-                if(res.data.data.results.length === 0)
-                    alert("We did not find any results for your search, please try again.")
+                if(res.data.data.results.length === 0){
+                    alert("We did not find any results for your search, please try again.");
+                    setModalVisible(false);
+                }
             })
             .catch((err) => {
-                console.log({ err });
+                setModalVisible(!modalVisible)
                 setModalLoading(false);
-                alert("We are unable to contact our servers right now, try again later.")
+                alert("We are unable to contact our servers right now, try again later.");
             });
     }
 
@@ -83,34 +84,38 @@ const ComicsList = ({ route, navigation }) => {
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <Text style={styles.title}>Select your hero</Text>
+                        {modalLoading ? 
+                        <ActivityIndicator size="large" color="#ed1d24" />
+                        : 
                         <ScrollView style={styles.scrollableList}>
 
-                            {characters.map((item, i) => {
-                                console.log(item.thumbnail.path + "portrait_small." + item.thumbnail.extension)
+                        {characters.map((item, i) => {
+                            
 
-                                return (
+                            return (
 
-                                    <ListItem 
-                                        key={i} 
-                                        bottomDivider 
-                                        containerStyle={styles.listContainer} 
-                                        onPress={() => {
-                                            setHeroId(item.id),
-                                            setLoading(true);
-                                            setModalVisible(!modalVisible);
-                                            setModalLoading(true);
-                                        }}
-                                    >
-                                        <Avatar source={{ uri: item.thumbnail.path + "/portrait_small." + item.thumbnail.extension }} />
-                                        <ListItem.Content>
-                                            <ListItem.Title style={styles.heroName}>{item.name}</ListItem.Title>
-                                        </ListItem.Content>
-                                    </ListItem>
+                                <ListItem 
+                                    key={i} 
+                                    bottomDivider 
+                                    containerStyle={styles.listContainer} 
+                                    onPress={() => {
+                                        setHeroId(item.id),
+                                        setLoading(true);
+                                        setModalVisible(!modalVisible);
+                                        setModalLoading(true);
+                                    }}
+                                >
+                                    <Avatar source={{ uri: item.thumbnail.path + "/portrait_small." + item.thumbnail.extension }} />
+                                    <ListItem.Content>
+                                        <ListItem.Title style={styles.heroName}>{item.name}</ListItem.Title>
+                                    </ListItem.Content>
+                                </ListItem>
 
-                                )
-                            })}
+                            )
+                        })}
 
-                        </ScrollView>
+                    </ScrollView>}
+                        
                         <Button
                             title="Close"
                             type="clear"
