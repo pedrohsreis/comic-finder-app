@@ -43,7 +43,7 @@ const Footer = (props) => {
 
                     }}
                 >
-                    {props.next ? "Next" : "Back"}
+                    {props.next ? "Next" : "Home"}
                 </Text>
             </View>
         </TouchableOpacity>

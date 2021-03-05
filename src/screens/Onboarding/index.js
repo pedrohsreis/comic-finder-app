@@ -9,7 +9,7 @@ import ViewPager from '@react-native-community/viewpager';
 import Footer from "../../components/Footer";
 
 
-const Onboarding = () => {
+const Onboarding = ({ navigation }) => {
 
 
     const pageRef = useRef(null);
@@ -17,7 +17,6 @@ const Onboarding = () => {
     const handlePageChange = pageNumber => {
         pageRef.current.setPage(pageNumber);
     };
-
 
     return (
         <View style={styles.root}>
@@ -27,7 +26,7 @@ const Onboarding = () => {
                     <Footer next = {true} buttonPress = {() => handlePageChange(1)}/>
                 </View>
                 <View key="2">
-                    <Search />
+                    <Search navigation = {navigation} />
                     <Footer next = {false} buttonPress = {() => handlePageChange(0)}/>
                 </View>
             </ViewPager>
