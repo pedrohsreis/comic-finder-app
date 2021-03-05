@@ -5,12 +5,10 @@
  * @format
  * @flow strict-local
  */
-
+jest.useFakeTimers()
 import React from 'react';
 import {
   StatusBar,
-  View,
-  Text
 } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';

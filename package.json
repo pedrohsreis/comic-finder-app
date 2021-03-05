@@ -38,11 +38,20 @@
     "react-test-renderer": "16.13.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "collectCoverageFrom": [ "src/**/*.{js,jsx}" ],
+    "setupFiles": [
+      "./jest-setup.js"
+    ],
+    "moduleNameMapper": {
+       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/fileTransformer.js", 
+       "\\.(css|less)$": "<rootDir>/tests/fileTransformer.js" 
+      }
   },
   "rnpm": {
     "assets": [
       "./src/assets/fonts/"
     ]
   }
+  
 }

@@ -31,14 +31,12 @@ const Search = (props) => {
             }
         })
             .then((res) => {
-                console.log(res);
                 setLoading(false);
                 setCharacters(res.data.data.results);
                 if(res.data.data.results.length === 0)
                     alert("We did not find any results for your search, please try again.")
             })
             .catch((err) => {
-                console.log({ err });
                 setLoading(false);
                 alert("We are unable to contact our servers right now, try again later.")
             });
@@ -92,7 +90,6 @@ const Search = (props) => {
                     <ScrollView style = { styles.scrollableList }>
 
                     {characters.map((item, i) => {
-                        console.log(item.thumbnail.path + "portrait_small." + item.thumbnail.extension)
 
                         return(
                         
