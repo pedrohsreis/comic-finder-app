@@ -4,13 +4,14 @@ This is a React Native app for retrieving Comics of a chosen character. This app
 
 # Setup
 
-There's two ways to run this project.
+There are two ways to run this project.
 
 ## 1. Git clone and npm install
 
-Clone this repo, and inside the local folder run:
+Clone this repo, and run:
 
 ```bash
+cd MarvelApp
 npm install --save
 react-native run-android
 ```
