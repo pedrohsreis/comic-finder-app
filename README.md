@@ -26,3 +26,7 @@ docker build . -f Dockerfile -t marvelapp
 ## Emulation
 
 You might want to have in mind that none of the above install any emulation software, so it's recommended that you have an Emulator installed and running or an Android device connected to your computer.
+
+# Deploy Key
+
+This is a private repo and it contains a key that allows cloning without user or password verification. If you're a maintainer, do not share this key with third parties.
