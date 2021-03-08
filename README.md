@@ -25,4 +25,4 @@ docker build . -f Dockerfile -t marvelapp
 
 ## Emulation
 
-You might want to have in mind that none of the above install any emulation software, so it's recommended that you have an Emulator installed or an Android device connected to your computer.
+You might want to have in mind that none of the above install any emulation software, so it's recommended that you have an Emulator install and running or an Android device connected to your computer.
